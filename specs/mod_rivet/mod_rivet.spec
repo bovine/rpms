@@ -6,7 +6,7 @@
 
 Summary: Apache Rivet lets you use the Tcl scripting language to create dynamic web sites
 Name: mod_rivet
-Version: 2.0.5
+Version: 2.2.2
 Release: 1%{?dist}
 License: Apache License Version 2.0
 Group: Development/Languages
@@ -16,14 +16,14 @@ Source0: http://www.apache.org/dist/tcl/%{real_name}/%{real_name}-%{version}.tar
 Source1: http://www.apache.org/dist/tcl/%{real_name}/%{real_name}-%{version}.tar.gz.asc
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
-BuildRequires: httpd-devel >= 2.0.46-1
+BuildRequires: httpd-devel >= 2.2
 BuildRequires: gcc-c++
 BuildRequires: libstdc++-devel
-BuildRequires: tcl >= 8.4
-BuildRequires: tcl-devel >= 8.4
+BuildRequires: tcl >= 8.5.10
+BuildRequires: tcl-devel >= 8.5.10
 
 Requires: httpd
-Requires: tcl >= 8.4
+Requires: tcl >= 8.5.10
 
 %description
 Tcl is a scripting language.  Apache Rivet is a module for Apache
@@ -38,7 +38,6 @@ generated webpages in Tcl.
 %configure \
     --with-apxs="%{_sbindir}/apxs"       \
     --with-apache="%{_prefix}"           \
-    --with-apache-version="2"            \
     --with-rivet-target-dir="%{_libdir}/httpd/rivet%{version}"   \
     --with-pic \
     --disable-rpath
@@ -88,6 +87,9 @@ EOT
 
 
 %changelog
+* Sat Apr 11 2015 Jeff Lawson <jeff@bovine.net> - 2.2.2-1
+- Updated to release 2.2.2.
+
 * Tue Jun 26 2012 Jeff Lawson <jeff@bovine.net> - 2.0.4-1
 - Updated to release 2.0.5.
 
